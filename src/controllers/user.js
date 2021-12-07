@@ -107,12 +107,6 @@ exports.updateUser = async (req, res) => {
             },
         });
 
-        if (userData.photo !== null) {
-            fs.unlink("uploads/" + userData.photo, (err) => {
-                if (err) throw err;
-            });
-        }
-
         await user.update(data, {
             where: {
                 id,
